@@ -10,6 +10,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SidebarAndNavbarController {
 
@@ -28,7 +30,13 @@ public class SidebarAndNavbarController {
     @FXML
     private Label NombreUsuario;
 
-    private String usuarioActual ;
+    @FXML
+    private Label LogoHome;
+
+    private String usuarioActual;
+
+    // Mapa para almacenar las ventanas abiertas
+    private final Map<String, Stage> ventanasAbiertas = new HashMap<>();
 
     // Método para inicializar el controlador y configurar los eventos de los botones
     @FXML
@@ -37,6 +45,7 @@ public class SidebarAndNavbarController {
         BtonBuzon.setOnMouseClicked(event -> abrirVentana("Buzon.fxml"));
         BtonAgenda.setOnMouseClicked(event -> abrirVentana("Agenda.fxml"));
         Btoncalendario.setOnMouseClicked(event -> abrirVentana("Calendario.fxml"));
+        LogoHome.setOnMouseClicked(event -> abrirVentana("MainWindow.fxml"));
 
         // Configurar la acción del campo de búsqueda
         Busqueda.setOnAction(event -> realizarBusqueda(Busqueda.getText()));
@@ -44,14 +53,32 @@ public class SidebarAndNavbarController {
 
     // Método para abrir una nueva ventana
     private void abrirVentana(String archivoFXML) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(archivoFXML));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        // Comprobar si la ventana ya está abierta
+        if (ventanasAbiertas.containsKey(archivoFXML)) {
+            // Si ya está abierta, solo la traemos al frente
+            ventanasAbiertas.get(archivoFXML).toFront();
+        } else {
+            try {
+                // Si no está abierta, cerramos la ventana principal
+                Stage stagePrincipal = (Stage) BtonBuzon.getScene().getWindow();
+                stagePrincipal.close();
+
+                // Cargar la nueva ventana
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(archivoFXML));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+
+                // Almacenar la nueva ventana en el mapa
+                ventanasAbiertas.put(archivoFXML, stage);
+
+                // Configurar un evento para cerrar la ventana cuando se cierre
+                stage.setOnCloseRequest(event -> ventanasAbiertas.remove(archivoFXML));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -62,7 +89,8 @@ public class SidebarAndNavbarController {
     }
 
     // Método para establecer el nombre del usuario que ingresó
-    public void setNombreUsuario (String usuarioActual) {
+    public void setNombreUsuario(String usuarioActual) {
         NombreUsuario.setText("Usuario: " + usuarioActual);
     }
 }
+

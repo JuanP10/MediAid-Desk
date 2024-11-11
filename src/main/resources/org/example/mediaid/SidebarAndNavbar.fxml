@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DisplacementMap?>
+<?import javafx.scene.effect.FloatMap?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,33 +16,76 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane accessibleText="sdsadas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mediaid.SidebarAndNavbarController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-border-radius: 12;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mediaid.SidebarAndNavbarController">
+   <stylesheets>
+      <URL value="@styles.css" />
+   </stylesheets>
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="63.0" style="-fx-background-color: #7B7B7B;">
+      <AnchorPane prefHeight="700.0" prefWidth="63.0" style="-fx-background-color: #7B7B7B;">
          <children>
-            <ImageView fx:id="BtonBuzon" fitHeight="28.0" fitWidth="30.0" layoutX="18.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="BtonBuzon" fitHeight="28.0" fitWidth="30.0" layoutX="18.0" layoutY="81.0" onMouseDragEntered="#initialize" onMouseEntered="#initialize" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow;">
                <image>
                   <Image url="@img/buzon.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DisplacementMap wrap="true">
+                     <mapData>
+                        <FloatMap />
+                     </mapData>
+                  </DisplacementMap>
+               </effect>
             </ImageView>
             <ImageView fx:id="BtonAgenda" fitHeight="28.0" fitWidth="28.0" layoutX="18.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/agenda.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DisplacementMap>
+                     <mapData>
+                        <FloatMap />
+                     </mapData>
+                  </DisplacementMap>
+               </effect>
             </ImageView>
             <ImageView fx:id="Btoncalendario" fitHeight="48.0" fitWidth="28.0" layoutX="18.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/calendario.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DisplacementMap>
+                     <mapData>
+                        <FloatMap />
+                     </mapData>
+                  </DisplacementMap>
+               </effect>
             </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="61.0" layoutY="-1.0" prefHeight="58.0" prefWidth="1219.0" style="-fx-background-color: #7B7B7B;">
          <children>
-            <Label layoutX="23.0" layoutY="17.0" prefHeight="28.0" prefWidth="73.0" text="MediAid">
+            <Label fx:id="LogoHome" layoutX="23.0" layoutY="17.0" prefHeight="28.0" prefWidth="73.0" text="MediAid">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DisplacementMap>
+                     <mapData>
+                        <FloatMap />
+                     </mapData>
+                  </DisplacementMap>
+               </effect>
             </Label>
             <TextField fx:id="Busqueda" layoutX="581.0" layoutY="17.0" prefHeight="25.0" prefWidth="185.0" style="-fx-background-color: #ffffff;" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.2" layoutX="560.0" layoutY="17.0" strokeType="INSIDE" width="28.0">
@@ -68,7 +115,6 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fx:id="LogoHome" fitHeight="17.0" fitWidth="22.0" layoutX="641.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </children>

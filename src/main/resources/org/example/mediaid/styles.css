@@ -1,0 +1,29 @@
+/* Estilo base para la imagen de los botones */
+.image-view {
+    -fx-background-color: transparent; /* Fondo transparente */
+    -fx-padding: 10px; /* Espaciado interno para darle el recuadro */
+    -fx-border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    -fx-border-width: 2px; /* Ancho del borde */
+    -fx-border-color: #7B7B7B; /* Color del borde */
+    -fx-alignment: center; /* Centrar la imagen dentro del botón */
+    cursor: pointer;
+}
+
+/* Efecto al pasar el mouse */
+.image-view:hover {
+    cursor: pointer; /* Cambiar el cursor a la manita */
+    -fx-effect: dropshadow(three-pass-box, gray, 5, 0, 0, 0); /* Sombra suave */
+    -fx-border-color: #3B3B3B; /* Cambiar color del borde en hover */
+    -fx-border-width: 2px; /* Mantener el mismo tamaño del borde */
+}
+
+/* Estilos para los botones específicos (Buzon, Agenda, Calendario) */
+#BtonBuzon:hover,
+#BtonAgenda:hover,
+#Btoncalendario:hover {
+    -fx-border-color: #5A5A5A; /* Borde ligeramente diferente para mejorar la visibilidad */
+    -fx-border-width: 2px; /* Borde igual al pasar el mouse */
+    -fx-scale-x: 1.1; /* Aumentar el tamaño en el eje X para la sobreposición */
+    -fx-scale-y: 1.1; /* Aumentar el tamaño en el eje Y para la sobreposición */
+}
+
