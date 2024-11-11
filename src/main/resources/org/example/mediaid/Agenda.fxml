@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.fxml.FXML?>
+<?import javafx.fxml.FXMLLoader?>
+<?import javafx.scene.Parent?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.mediaid.AgendaController">
+    <!-- Incluir Sidebar y Navbar -->
+    <fx:include fx:id="sidebar" source="SidebarAndNavbar.fxml" />
+
+    <!-- Contenido específico de la ventana -->
+    <AnchorPane layoutX="200" layoutY="100" prefHeight="400" prefWidth="600">
+        <Text layoutX="100" layoutY="100" text="Agenda de actividades"/>
+        <Label text="Aquí puedes gestionar tu agenda de actividades diarias" layoutX="100" layoutY="130"/>
+    </AnchorPane>
+</AnchorPane>
+
