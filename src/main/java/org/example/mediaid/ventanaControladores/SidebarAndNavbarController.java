@@ -1,4 +1,4 @@
-package org.example.mediaid;
+package org.example.mediaid.ventanaControladores;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +33,7 @@ public class SidebarAndNavbarController {
     @FXML
     private Label LogoHome;
 
-    private String usuarioActual;
+    public static String usuarioActual;
 
     // Mapa para almacenar las ventanas abiertas
     private final Map<String, Stage> ventanasAbiertas = new HashMap<>();
@@ -42,10 +42,10 @@ public class SidebarAndNavbarController {
     @FXML
     public void initialize() {
         // Configurar acciones de los botones
-        BtonBuzon.setOnMouseClicked(event -> abrirVentana("Buzon.fxml"));
-        BtonAgenda.setOnMouseClicked(event -> abrirVentana("Agenda.fxml"));
-        Btoncalendario.setOnMouseClicked(event -> abrirVentana("Calendario.fxml"));
-        LogoHome.setOnMouseClicked(event -> abrirVentana("MainWindow.fxml"));
+        BtonBuzon.setOnMouseClicked(event -> abrirVentana("/org/example/mediaid/Buzon.fxml"));
+        BtonAgenda.setOnMouseClicked(event -> abrirVentana("/org/example/mediaid/Agenda.fxml"));
+        Btoncalendario.setOnMouseClicked(event -> abrirVentana("/org/example/mediaid/Calendario.fxml"));
+        LogoHome.setOnMouseClicked(event -> abrirVentana("/org/example/mediaid/MainWindow.fxml"));
 
         // Configurar la acción del campo de búsqueda
         Busqueda.setOnAction(event -> realizarBusqueda(Busqueda.getText()));
@@ -84,7 +84,6 @@ public class SidebarAndNavbarController {
 
     // Método para realizar una búsqueda en el programa
     private void realizarBusqueda(String palabra) {
-        // Aquí agregarías la lógica para buscar la palabra en el programa
         System.out.println("Buscando: " + palabra);
     }
 

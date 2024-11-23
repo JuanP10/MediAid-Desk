@@ -1,20 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
-<?import javafx.fxml.FXML?>
-<?import javafx.fxml.FXMLLoader?>
-<?import javafx.scene.Parent?>
+<?import org.controlsfx.control.CheckListView?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.mediaid.AgendaController">
-    <!-- Incluir Sidebar y Navbar -->
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mediaid.ventanaControladores.AgendaController">
     <fx:include fx:id="sidebar" source="SidebarAndNavbar.fxml" />
-
-    <!-- Contenido específico de la ventana -->
-    <AnchorPane layoutX="200" layoutY="100" prefHeight="400" prefWidth="600">
-        <Text layoutX="100" layoutY="100" text="Agenda de actividades"/>
-        <Label text="Aquí puedes gestionar tu agenda de actividades diarias" layoutX="100" layoutY="130"/>
-    </AnchorPane>
+   <Pane layoutX="132.0" layoutY="109.0" prefHeight="527.0" prefWidth="615.0" />
+   <Pane layoutX="101.0" layoutY="97.0" prefHeight="520.0" prefWidth="839.0" style="-fx-border-radius: 8; -fx-border-color: black;">
+      <children>
+         <Line endX="738.0" layoutX="101.0" layoutY="50.0" startX="-100.0" stroke="GREY" />
+         <TextField fx:id="Busqueda" layoutX="77.0" layoutY="15.0" prefHeight="25.0" prefWidth="185.0" style="-fx-background-color: #ffffff;">
+            <effect>
+               <InnerShadow />
+            </effect>
+         </TextField>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d2cece" height="25.2" layoutX="50.0" layoutY="15.0" strokeType="INSIDE" width="28.0">
+            <stroke>
+               <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </stroke>
+            <effect>
+               <InnerShadow />
+            </effect>
+         </Rectangle>
+         <ImageView fitHeight="17.0" fitWidth="13.0" layoutX="58.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/lupa.png" />
+            </image>
+         </ImageView>
+         <ScrollPane fx:id="ScrollMostrarPacientes" hbarPolicy="NEVER" layoutX="1.0" layoutY="51.0" prefHeight="466.0" prefWidth="837.5" style="-fx-background-color: 8;" vbarPolicy="ALWAYS" />
+         <Button fx:id="BtnAgregarPaciente" layoutX="705.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #AB93F3;" text="Editar" textFill="WHITE">
+            <effect>
+               <InnerShadow />
+            </effect></Button>
+      </children>
+   </Pane>
+   <Pane fx:id="PaneAgregar" layoutX="966.0" layoutY="188.0" prefHeight="429.0" prefWidth="299.0" style="-fx-border-color: black; -fx-border-radius: 10;">
+      <children>
+         <Text layoutX="23.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de nacimiento:" wrappingWidth="112.0" />
+         <Text layoutX="31.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Condiciones Medicas :" wrappingWidth="82.1484375" />
+         <Button fx:id="BtnEditarPaciente" layoutX="92.0" layoutY="378.0" mnemonicParsing="false" onAction="#agregarPaciente" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #AB93F3;" text="Agregar" textFill="WHITE" />
+         <Text layoutX="35.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paciente:" wrappingWidth="75.865234375" />
+         <Text layoutX="31.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Es Pensionado :" />
+         <Text layoutX="35.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cedúla :" wrappingWidth="75.865234375" />
+         <TextField fx:id="NombrePaciente" depthTest="DISABLE" layoutX="156.0" layoutY="51.0" pickOnBounds="false" prefHeight="25.0" prefWidth="118.0" />
+         <TextField fx:id="CedulaPaciente" depthTest="DISABLE" layoutX="156.0" layoutY="88.0" pickOnBounds="false" prefHeight="25.0" prefWidth="118.0" />
+         <DatePicker fx:id="NacimientoPaciente" layoutX="158.0" layoutY="130.0" prefHeight="25.0" prefWidth="118.0" />
+         <CheckBox fx:id="EsPecionadoPaciente" layoutX="188.0" layoutY="303.0" mnemonicParsing="false" text="Si" />
+         <CheckListView fx:id="CondicionesPaciente" layoutX="148.0" layoutY="183.0" prefHeight="106.0" prefWidth="134.0" />
+      </children>
+      <effect>
+         <InnerShadow />
+      </effect>
+   </Pane>
 </AnchorPane>
-

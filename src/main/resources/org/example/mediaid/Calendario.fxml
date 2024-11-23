@@ -1,20 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.fxml.FXML?>
-<?import javafx.fxml.FXMLLoader?>
-<?import javafx.scene.Parent?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.mediaid.CalendarioController">
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mediaid.ventanaControladores.CalendarioController">
     <!-- Incluir Sidebar y Navbar -->
     <fx:include fx:id="sidebar" source="SidebarAndNavbar.fxml" />
-
-    <!-- Contenido específico de la ventana -->
-    <AnchorPane layoutX="200" layoutY="100" prefHeight="400" prefWidth="600">
-        <Text layoutX="100" layoutY="100" text="Calendario de eventos"/>
-        <Label text="Aquí se visualizan los eventos y actividades programadas" layoutX="100" layoutY="130"/>
-    </AnchorPane>
+   <Pane layoutX="420.0" layoutY="125.0" prefHeight="496.0" prefWidth="427.0" style="-fx-border-color: black; -fx-border-radius: 12;">
+      <children>
+         <Text layoutX="36.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del medicamento">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="TextNombreMedicamento" layoutX="239.0" layoutY="137.0" />
+         <Text layoutX="36.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="TextCantidad" layoutX="239.0" layoutY="177.0" />
+         <Text layoutX="36.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo Medicamento">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Text>
+         <MenuButton fx:id="BtonTipoMedicamento" layoutX="239.0" layoutY="219.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Tipo Medicamento">
+         </MenuButton>
+         <Text layoutX="36.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primera Fecha de Vencimiento">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Text>
+         <DatePicker fx:id="BtonFecha" layoutX="240.0" layoutY="265.0" prefHeight="20.0" prefWidth="149.0" />
+         <Text layoutX="36.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de Adquisición">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Text>
+         <MenuButton fx:id="BtonFormaAdquisicion" layoutX="240.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Forma de Adquisición">
+         </MenuButton>
+         <Button fx:id="BtonAgregarMedicamento" layoutX="178.0" layoutY="386.0" mnemonicParsing="false" onAction="#agregarMedicamento" prefHeight="25.0" prefWidth="71.0" text="Agregar">
+            <effect>
+               <InnerShadow />
+            </effect></Button>
+         <Text layoutX="124.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Medicamento">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Text>
+      </children>
+   </Pane>
 </AnchorPane>
-

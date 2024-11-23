@@ -1,20 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.fxml.FXML?>
-<?import javafx.fxml.FXMLLoader?>
-<?import javafx.scene.Parent?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.mediaid.BuzonController">
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mediaid.ventanaControladores.BuzonController">
     <!-- Incluir Sidebar y Navbar -->
     <fx:include fx:id="sidebar" source="SidebarAndNavbar.fxml" />
-
-    <!-- Contenido específico de la ventana -->
-    <AnchorPane layoutX="200" layoutY="100" prefHeight="400" prefWidth="600">
-        <Text layoutX="100" layoutY="100" text="Contenido del Buzón"/>
-        <Label text="Aquí puedes visualizar y gestionar tus mensajes" layoutX="100" layoutY="130"/>
-    </AnchorPane>
+   <Pane layoutX="435.0" layoutY="137.0" prefHeight="477.0" prefWidth="437.0" style="-fx-border-color: black; -fx-border-radius: 12;" AnchorPane.topAnchor="137.0">
+      <children>
+         <MenuButton fx:id="MenuMedicamento" layoutX="243.0" layoutY="190.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Seleccionar" />
+      </children></Pane>
+   <Text layoutX="485.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del paciente">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <Text layoutX="485.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicamento">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <Text layoutX="481.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad suministrada">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <Text layoutX="483.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primera Fecha de suministro">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <DatePicker fx:id="BtonFechaSuministro" layoutX="677.0" layoutY="449.0" prefHeight="20.0" prefWidth="149.0" />
+   <Text layoutX="487.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enfermero(a) que lo realizó">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <MenuButton fx:id="MenuEnfermeroquerealizo" layoutX="677.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Seleccionar">
+   </MenuButton>
+   <Button fx:id="BtonAgregarMedicamento" layoutX="627.0" layoutY="554.0" mnemonicParsing="false" onAction="#agregarSuministro" prefHeight="25.0" prefWidth="71.0" text="Agregar">
+      <effect>
+         <InnerShadow />
+      </effect>
+   </Button>
+   <TextField fx:id="TextCantidadSuministrada" layoutX="677.0" layoutY="390.0" />
+   <Text layoutX="576.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar suministro">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Text>
+   <MenuButton fx:id="MenuPaciente" layoutX="677.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Seleccionar">
+   </MenuButton>
+   <Button fx:id="DescargarSuministros" layoutX="1134.0" layoutY="602.0" mnemonicParsing="false" text="Descargar PDF" />
 </AnchorPane>
-

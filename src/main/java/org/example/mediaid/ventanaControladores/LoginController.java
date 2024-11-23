@@ -1,4 +1,4 @@
-package org.example.mediaid;
+package org.example.mediaid.ventanaControladores;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +32,8 @@ public class LoginController {
     private static final String USUARIO_AUXILIAR = "auxiliar";
     private static final String CONTRASENA_AUXILIAR = "auxiliar123";
 
+
+
     @FXML
     private void handleLogin() {
         String usuario = usuarioField.getText();
@@ -58,7 +60,7 @@ public class LoginController {
     private void openMainWindow() {
         try {
             // Cargar MainWindow.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/mediaid/MainWindow.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
 
