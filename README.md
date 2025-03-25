@@ -24,9 +24,9 @@ Ejecuta el proyecto desde tu entorno de desarrollo.
 Este proyecto fue desarrollado bajo la metodología RUP (Proceso Unificado Racional), siguiendo fases de análisis, diseño, implementación, pruebas y despliegue, garantizando calidad y mantenibilidad.
 
 # 🤝 Colaboradores
-Juan Pablo Ramírez Gutiérrez
-Carlos Enrique Aroca Escorcia
-Santiago Andrés Candanoza
+- Juan Pablo Ramírez Gutiérrez
+- Carlos Enrique Aroca Escorcia
+- Santiago Andrés Candanoza
 
 # 📄 Licencia
 libre para uso y modificación.
